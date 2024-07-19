@@ -1,0 +1,377 @@
+#enemy-health-bar, #player-health-bar {
+    border: thin solid black;
+    height: 10px;
+    border-radius: 100px;
+    display: inline-block;
+    width: 200px; /* 200px */
+}
+
+#enemy-health-bar-inner, #player-health-bar-inner {
+    background-color: green;
+    margin: 0;
+    border: 0;
+    border-radius: 100px;
+    width: 100%;
+    height:100%;
+    
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
+}
+
+@font-face { /*CUSTOM FONT */
+    font-family: "PixelFont";
+    src: url("font/test.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container{
+    margin-left: 15%;
+    border: 2px solid #dd6161;
+    width: 1050px;
+    height: 540px;
+    /* background-color: lightgreen; */
+    background-image: url("images/battle_background.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    
+}
+
+.opponent{
+    margin-top: 20px;
+    height: 120px;
+    width: 300px;
+    margin-left: 40px;
+    background-color: white;
+    border-radius: 20px;
+    /* border: 2px red solid; */
+}
+
+.battlefield{
+    width: 800px;
+    height: 30px;
+    /* border: 2px black solid; */
+}
+
+.user{
+    height: 120px;
+    width: 300px;
+    margin-left: 300px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 20px;
+    /* border: 2px green solid; */
+    
+}
+
+.user-hud{
+    margin-left: 15%;
+    width: 1050px;
+    height: 140px;
+    border: 2px black solid;
+    background-color: lightgray;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1px; /* Adjust the gap between the buttons */
+    width: 100%;
+    height: 100%;
+}
+
+.button-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonAT{
+    font-size: 20px;
+    font-family: "PixelFont";
+    background-color: #dd6161;
+    color: black;
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+}
+.buttonAT:hover{
+    background-color: #da3333;
+    color: whitesmoke;
+}
+
+.buttonAS{
+    font-size: 20px;
+    font-family: "PixelFont";
+    background-color: lightyellow;
+    color: black;
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+.buttonAS:hover{
+    background-color: rgb(221, 221, 63);
+    color: black;
+}
+
+.buttonB{
+    font-size: 20px;
+    font-family: "PixelFont";
+    background-color: lightgreen;
+    color: black;
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+.buttonB:hover{
+    background-color: darkgreen;
+    color: whitesmoke;
+}
+
+.buttonF{
+    font-size: 20px;
+    font-family: "PixelFont";
+    background-color: lightblue;
+    color: black;
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+.buttonF:hover{
+    background-color: darkblue;
+    color: whitesmoke;
+}
+
+.pokemon-name{
+    margin-left: 120px;
+    font-family: "PixelFont";
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.pokemon-level{
+    font-size: 15px;
+    font-family: "PixelFont";
+    margin-bottom: 2px;
+    margin-top: 2px;
+    margin-left: 190px;
+
+}
+
+.user-container{
+    display: flex;
+}
+
+.user-pokemon-image{
+    margin-left: 230px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    transform: scaleX(-1);
+}
+
+.opponent-pokemon-image{
+    margin-left: 300px;
+    margin-top: 120px;
+    margin-bottom: 10px;
+}
+
+.opponent-container{
+    display: flex;
+}
+
+.enemy-health{
+    margin-left: 30px;
+}
+
+.player-health{
+    margin-left: 30px;
+}
+
+.battle-button{
+    font-size: 20px;
+    font-family: "PixelFont";
+    background-color: #dd6161;
+    color: black;
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+}
+.battle-button:hover{
+    background-color: #da3333;
+    color: whitesmoke;
+}
+
+
+body{
+    background-color: rgb(56, 54, 54);
+}
+
+.page_title{
+    font-size: 40px;
+    font-family: "PixelFont";
+    color:#dd6161;
+    margin-left: 35%;
+}
+
+.slide{
+    animation-name: slideAnimation;
+    animation-duration: .1s; /* duration */
+    animation-timing-function: ease-in-out;
+}
+
+.slide-rev{
+    animation-name: slideAnimationR;
+    animation-duration: .1s; /* duration */
+    animation-timing-function: ease-in-out;
+}
+  
+@keyframes slideAnimation {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(60px); /* slide distance */
+    }
+    100% {
+      transform: translateX(0);
+    }
+}
+
+@keyframes slideAnimationR {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-60px); /* slide distance */
+    }
+    100% {
+      transform: translateX(0);
+    }
+}
+
+.bench-button{
+    font-size: 20px;
+    font-family: "PixelFont";
+    background-color: lightgreen;
+    color: black;
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+}
+.bench-button:hover{
+    background-color: darkgreen;
+    color: whitesmoke;
+}
+
+.assist-button{
+    font-size: 20px;
+    font-family: "PixelFont";
+    background-color: lightyellow;
+    color: black;
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+}
+.assist-button:hover{
+    background-color: rgb(221, 221, 63);
+    color: whitesmoke;
+}
+
+.back-button{
+    font-size: 20px;
+    font-family: "PixelFont";
+    background-color: lightpink;
+    color: black;
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+}
+.back-button:hover{
+    background-color: rgb(234, 104, 123);
+    color: whitesmoke;
+}
+
+/* Special stuff */
+.special{
+    animation-name: specialAttack;
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes specialAttack {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.5);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: rotate(45deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.receive-special{
+    animation-name: receiveSpecial;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in-out;
+}
+
+.specialR{
+    animation-name: specialAttackR;
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes specialAttackR {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.5);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: rotate(-45deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.receive-special{
+    animation-name: receiveSpecial;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes receiveSpecial {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

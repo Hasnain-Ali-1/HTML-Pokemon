@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pokemon Light</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="Pokemon.css" rel="stylesheet" />
+    <link href="Battle.css" rel="stylesheet">
+  </head>
+  <body>
+    <audio id="audioPlayer" src=""></audio>
+    <audio id="soundEffect" src=""></audio>
+
+
+    <div
+      style="
+        display: inline-block;
+        position: relative;
+        width: 1200px;
+        height: 600px;
+      "
+    >
+      <div
+        id="evolveDiv"
+        class="color-gradient"
+        style="display: none; position: absolute; z-index: 9999"
+      >
+        <div id="evolutionContainer" class="evolutionContainer">
+          <div
+            id="pokemon1"
+            class="pokemon1"
+            style="position: absolute; top: 35%; left: 35%"
+          ></div>
+          <div
+            id="pokemon2"
+            class="pokemon2"
+            style="position: absolute; top: 35%; left: 35%"
+          ></div>
+        </div>
+      </div>
+      <div
+        id="overlap"
+        style="
+          background-color: black;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          opacity: 0;
+          z-index: 9999;
+          pointer-events: none;
+        "
+      ></div>
+
+      <div
+        id="menu"
+        style="
+          display: none;
+          margin-top: 20%;
+          z-index: 9999;
+          position: absolute;
+        "
+      >
+        <div>
+          <div class="option" tabindex="0">
+            View Team
+            <div class="arrow"></div>
+          </div>
+          <div class="option" tabindex="0">
+            User
+            <div class="arrow"></div>
+          </div>
+          <div class="option" tabindex="0">
+            Quit
+            <div class="arrow"></div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="user"
+        style="
+          backdrop-filter: blue(3px);
+          position: absolute;
+          z-index: 9999;
+          margin-top: 20%;
+          border: 3px solid lightgray;
+          border-radius: 3px;
+          width: 500px;
+          height: 300px;
+          background-color: #5090e0;
+          margin-top: 150px;
+          margin-left: 330px;
+          font-family: PixelFont;
+          color: white;
+          font-size: 32px;
+          display: none;
+          flex-direction: column;
+        "
+      >
+        &nbsp;&nbsp;&nbsp;Trainer Card
+        <div class="stat">
+          <div class="left">&nbsp;Name:</div>
+          <div class="right"></div>
+        </div>
+        <div class="stat">
+          <div class="left">&nbsp;Pokemon Defeated:</div>
+          <div class="right"></div>
+        </div>
+        <div class="stat">
+          <div class="left">&nbsp;Pokemon Caught:</div>
+          <div class="right"></div>
+        </div>
+        <div class="stat">
+          <div class="left">&nbsp;Trainers Defeated:</div>
+          <div class="right"></div>
+        </div>
+        <img
+          src="images/HGSSRed.webp"
+          alt="Trainer Image"
+          style="
+            width: 200px;
+            height: 200px;
+            position: relative;
+            left: 60%;
+            top: -65%;
+          "
+        />
+        <div
+          class="badge"
+          id="badge1"
+          style="
+            background-position: -10px -10px;
+            margin-top: -37%;
+            margin-left: 6%;
+          "
+        ></div>
+        <div
+          class="badge"
+          id="badge2"
+          style="
+            background-position: -75px -3px;
+            margin-top: -13%;
+            margin-left: 17%;
+          "
+        ></div>
+        <div
+          class="badge"
+          id="badge3"
+          style="
+            background-position: -130px -3px;
+            margin-top: -12%;
+            margin-left: 26%;
+          "
+        ></div>
+        <div
+          class="badge"
+          id="badge4"
+          style="
+            background-position: -195px -3px;
+            margin-top: -12%;
+            margin-left: 38%;
+          "
+        ></div>
+        <div
+          class="badge"
+          id="badge5"
+          style="
+            background-position: -7px -65px;
+            margin-top: -12%;
+            margin-left: 50%;
+          "
+        ></div>
+        <div
+          class="badge"
+          id="badge6"
+          style="
+            background-position: -70px -65px;
+            margin-top: -12%;
+            margin-left: 61%;
+          "
+        ></div>
+        <div
+          class="badge"
+          id="badge7"
+          style="
+            background-position: -130px -65px;
+            margin-top: -12%;
+            margin-left: 71%;
+          "
+        ></div>
+        <div
+          class="badge"
+          id="badge8"
+          style="
+            background-position: -195px -65px;
+            margin-top: -11.5%;
+            margin-left: 83%;
+          "
+        ></div>
+      </div>
+
+      <div
+        id="team"
+        style="
+          backdrop-filter: blur(3px);
+          filter: saturate(70%);
+          background-image: url('images/teamGround.png');
+          object-fit: contain;
+          background-size: 100%;
+          height: 480px;
+          width: 900px;
+          margin-top: 5%;
+          margin-left: 12%;
+          display: none;
+          z-index: 9999;
+          position: absolute;
+        "
+      >
+        <br />
+        <div
+          id="bar"
+          style="flex-direction: column; justify-content: space-between"
+        >
+          <div class="tab">
+            <div class="arrowTeam"></div>
+          </div>
+          <div class="tab">
+            <div class="arrowTeam"></div>
+          </div>
+          <div class="tab">
+            <div class="arrowTeam"></div>
+          </div>
+        </div>
+        <div
+          id="info"
+          style="
+            background-color: #191919;
+            width: 690px;
+            height: 402px;
+            margin: 0px;
+            margin-top: 2%;
+            margin-bottom: 11%;
+            margin-left: 2%;
+            margin-right: 5%;
+            border-radius: 20px;
+            flex-direction: column;
+          "
+        >
+          <ul>
+            <li>Text 1</li>
+            <li>Text 2</li>
+            <li>Text 3</li>
+            <li>Text 4</li>
+            <li>Text 5</li>
+            <li>Text 6</li>
+          </ul>
+        </div>
+        <div
+          id="moveset"
+          style="
+            background-color: #191919;
+            width: 865px;
+            height: 402px;
+            margin: 0px;
+            margin-top: 4%;
+            margin-bottom: 11%;
+            margin-left: 5%;
+            margin-right: 5%;
+            border-radius: 20px;
+            flex-direction: column;
+            display: none;
+          "
+        ></div>
+      </div>
+      <div id="pokemonReleaseInterface" class="pokemonReleaseInterface">
+        <h1>Select a Pokemon to release</h1>
+        <div id="pokemonOptions" class="pokemonOptions">
+          <!-- Pokemon options will be loaded here -->
+        </div>
+        <button
+          id="goBack"
+          class="goBack"
+          style="font-family: PixelFont; font-size: larger"
+        >
+          Go Back
+        </button>
+      </div>
+      <div id="newPokemonOptions" class="newPokemonOptions">
+        <h1>Select a Pokemon to add</h1>
+        <div id="pokemonSelectOptions"></div>
+        <div id="pageButtons"></div>
+      </div>
+    </div>
+
+    <div id="dialogBox" class="dialog"></div>
+    <div id="canvasContainer">
+      <canvas class="realm" id="myCanvas" width="1196" height="596"></canvas>
+    </div>
+    <div id="popupMenu" class="hidden">
+      <div class="popupMenuContainer">
+        <div class="oak-dialog">
+          Hello, I am professor Oak, How can I help you?
+        </div>
+        <button id="obtainButton" class="oak-obtain-button">
+          Obtain Pokemon
+        </button>
+        <button id="healButton" class="oak-heal-button">Heal Pokemon</button>
+        <button id="exitButton" class="oak-exit">Leave Conversation</button>
+      </div>
+    </div>
+    <div id="popupMenu2" class="hidden">
+      <div class="popupMenuContainer">
+        <div class="hoen-dialog">I'm Hoen, ready to battle?</div>
+        <button id="battleButton" class="hoen-battle-button">Battle</button>
+        <button id="exitButton2" class="hoen-exit">Leave Conversation</button>
+      </div>
+    </div>
+    <div id="battle-UI" class="hidden">
+        <body>
+          <div class="container">
+              <div class="opponent-container">
+                  <div class="opponent">
+                      <h1 id="e-pok-name"class="pokemon-name"> Select </h1>
+                      <h1 id="e-pok-lvl" class="pokemon-level"> ? </h1>
+                      <div class="enemy-health">
+                          HP: <div id="enemy-health-bar"><div id="enemy-health-bar-inner"></div></div>
+                      </div>
+                  </div>
+                  <div class="opponent-pokemon-image">
+                      <img src="images/pokemon_tree.png" height="140px" width="165px" id="o-img">
+                  </div>
+              </div>
+              <div class="battlefield">
+  
+              </div>
+              <div class="user-container">
+                  <div class="user-pokemon-image">
+                      <img src="images/pokemon_tree.png" height="175px" width="200px" id="u-img">
+                  </div>
+                  <div class="user"> 
+                      <h1 id="u-pok-name" class="pokemon-name"> Select </h1>
+                      <h1 id="u-pok-lvl" class="pokemon-level"> ? </h1>
+                      <div class="player-health">
+                          HP: <div id="player-health-bar"><div id="player-health-bar-inner"></div></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="user-hud">
+              <div class="button-grid">
+                  <div class="button-cell">
+                       <button id="t1" class="buttonAT">Attack</button>
+                  </div>
+                  <div class="button-cell">
+                      <button id="t2" class="buttonAS">Assist</button>
+                  </div>
+                  <div class="button-cell">
+                      <button id="b1" class="buttonB">Bench</button>
+                  </div>
+                  <div class="button-cell">
+                      <button id="b2" class="buttonF">Flee</button>
+                  </div>
+              </div>
+          </div>
+          <script src="Battle.js"></script>
+      </div>
+    <script src="Pokemon.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </body>
+</html>

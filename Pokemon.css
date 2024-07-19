@@ -1,0 +1,389 @@
+/* Main Page css*/
+#pokemonReleaseInterface {
+    width: 200px;
+    height: 200px;
+    margin-top: 15%;
+    margin-left: 47%;
+    padding: 20px;
+    border: 1px solid #000;
+    background-color: white;
+    position: absolute;
+    z-index: 9999;
+    display:none;
+}
+
+#pokemonOptions {
+    margin-bottom: 10px;
+}
+
+#pokemonOptions button {
+    display: block;
+    margin-bottom: 5px;
+    font-family: "PixelFont";
+    font-size: larger;
+}
+
+.newPokemonOptions {
+    width: 200px;
+    height: 400px;
+    margin-top: 15%;
+    margin-left: 47%;
+    padding: 20px;
+    border: 1px solid #000;
+    background-color: white;
+    position: absolute;
+    z-index: 9999;
+    display:none;
+}
+
+
+.realm{
+    border: 2px solid #dd6161;
+}
+
+.page_title{
+    font-size: 40px;
+    font-family: "PixelFont";
+    color:#dd6161;
+    margin-left: 35%;
+}
+
+body{
+    background-color: rgb(56, 54, 54);
+}
+
+@font-face { /*CUSTOM FONT */
+    font-family: "PixelFont";
+    src: url("font/test.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Oak / Hoen Interaction pop-up window css */
+#canvasContainer {
+    position: relative;
+    margin-top: -760px;
+}
+  
+#popupMenu {
+    position: absolute;
+    top: 45%;
+    left: 30%;
+    height: 200px;
+    width: 250px;
+    transform: translate(-50%, -50%);
+    /* Additional styling for the pop-up menu */
+    z-index: 9999; /* Higher z-index to bring the menu to the front */
+    background-color: whitesmoke;
+    border: 2px solid rgb(56, 54, 54)
+    
+}
+
+#popupMenu2 { /* for hoen */
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    height: 130px;
+    width: 200px;
+    transform: translate(-50%, -50%);
+    /* Additional styling for the pop-up menu */
+    z-index: 9999; /* Higher z-index to bring the menu to the front */
+    background-color: whitesmoke;
+    border: 2px solid rgb(56, 54, 54)
+    
+}
+
+.popupMenuContainer{
+    display: grid;
+    place-items: center;
+}
+  
+.hidden {
+    display: none;
+}
+  
+.oak-obtain-button {
+    font-family: "PixelFont";
+    font-size: 20px;
+    display: block;
+    margin-bottom: 0px; 
+    background-color: #dd6161;
+    height: 50px;
+    width: 250px;
+    color: black;
+    /* border: 2px solid rgb(56, 54, 54); */
+}
+.oak-obtain-button:hover{ /* Hover effect (for all will just darken the button's color) */
+    background-color: #db3636;
+    color: whitesmoke;
+}
+
+.oak-heal-button {
+    font-family: "PixelFont";
+    font-size: 20px;
+    display: block;
+    margin-bottom: 0px; 
+    background-color: lightgreen;
+    color: black;
+    height: 50px;
+    width: 250px;
+    
+}
+
+.oak-heal-button:hover{ /* Hover effect */
+    background-color: rgb(49, 131, 49);
+    color: whitesmoke;
+}
+
+.oak-exit {
+    font-family: "PixelFont";
+    font-size: 20px;
+    display: block;
+    margin-bottom: 0px; 
+    background-color: lightgrey;
+    color: black;
+    height: 50px;
+    width: 250px;
+}
+
+.oak-exit:hover{
+    background-color: rgb(103, 100, 100);
+    color: whitesmoke;
+}
+
+.oak-dialog{
+    font-size: 20px;
+    font-family: "PixelFont";
+    margin-top: 6px;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.hoen-battle-button{
+    font-family: "PixelFont";
+    font-size: 20px;
+    display: block;
+    margin-bottom: 0px; 
+    background-color: #dd6161;
+    height: 50px;
+    width: 200px;
+    color: black;
+}
+
+.hoen-battle-button:hover{
+    background-color: #db3636;
+    color: whitesmoke;
+}
+
+.hoen-exit {
+    font-family: "PixelFont";
+    font-size: 20px;
+    display: block;
+    margin-bottom: 0px; 
+    background-color: lightgrey;
+    color: black;
+    height: 50px;
+    width: 200px;
+}
+
+.hoen-exit:hover{
+    background-color: rgb(103, 100, 100);
+    color: whitesmoke;
+}
+
+.hoen-dialog{
+    font-size: 20px;
+    font-family: "PixelFont";
+    margin-top: 6px;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+  
+  h1 {
+    font-family: "PixelFont";
+    font-size: 26px;
+  }
+  
+  .dialog{
+    border: 3px solid #8795a1;
+    background-color: white;
+    font-family: "PixelFont";
+    font-size: 32px;
+    height: 150px;
+    width: 1200px;
+    position: relative;
+    top: 90px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+  }
+  
+  #textList{
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .badge {
+    width: 57px;
+    height: 60px;
+    background-image: url('images/badge.webp');
+    background-repeat: no-repeat;
+    background-size: 255px 128px;
+    filter: grayscale(100%);
+  }
+  
+  .color-gradient {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(to bottom, #404848, #40C0A0, #F8f8f8);
+    border: 2px solid black;
+    margin-top: 11%;
+    margin-left: 37%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .evolution-container {
+    position: relative;
+    width: 80%;
+    height: 80%;
+  }
+  
+  .pokemon1, .pokemon2 {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0) invert(1);
+    background-size: contain;
+    transition: transform 0.5s, opacity 0.5s, filter 0.5s;
+  }
+  
+  .scale-up {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .scale-down {
+    transform: scale(0);
+    opacity: 0;
+  }
+  
+  .stat {
+    background-color: #80B0E8;
+    color: black;
+    width: 300px;
+    height: 30px;
+    margin: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: -2px;
+    display: flex;
+    align-items: center;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  
+  .left {
+    text-align: left;
+  }
+  
+  .right {
+    text-align: right;
+  }
+  
+  .tab {
+    padding: 10px;
+    background-color: #191919;
+    color: white;
+    width: 210px;
+    height: 30px;
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-family: "PixelFont";
+    font-size: 28px;
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+  }
+  
+  .tab p{
+    top: auto;
+  }
+  
+  .option {
+    padding: 10px;
+    background-color: lightgray;
+    cursor: pointer;
+    position: relative;
+    width: 150px;
+    font-family: "PixelFont";
+    font-size: 28px;
+    right: -580%;
+    top: -100%;
+    text-align: end;
+    z-index: 9999;
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    transform: translateY(-50%) rotate(45deg);
+    opacity: 0;
+    animation: none;
+  }
+  
+  .arrowTeam {
+    position: absolute;
+    top: 38%;
+    left: 5%;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    transform: translateY(-50%) rotate(45deg);
+    opacity: 0;
+    animation: arrowBlink 1s infinite steps(1);
+  }
+  
+  @keyframes arrowBlink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  #battle-UI { /* battle */
+    position: absolute;
+    top: 8%;
+    left: 10%;
+    height: 130px;
+    width: 200px;
+    transform: translate(-50%, -50%);
+    /* Additional styling for the pop-up menu */
+    z-index: 9999; /* Higher z-index to bring the menu to the front */
+    border: 2px solid rgb(56, 54, 54)
+    
+}
